@@ -4,9 +4,10 @@ import { Card } from '../card/card.component';
 
 
 @Component({
-  selector: 'app-collection',
-  templateUrl: './collection.component.html',
-  styleUrls: ['./collection.component.css'],
+    selector: 'app-collection',
+    templateUrl: './collection.component.html',
+    styleUrls: ['./collection.component.css'],
+    standalone: false
 })
 export class CollectionComponent implements OnInit {
   Cards: Card[];

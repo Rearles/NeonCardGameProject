@@ -3,9 +3,10 @@ import { LoginComponent } from '../login/login.component'
 import { User } from '../login/user';
 
 @Component({
-  selector: 'app-login-header',
-  templateUrl: './login-header.component.html',
-  styleUrls: ['./login-header.component.css']
+    selector: 'app-login-header',
+    templateUrl: './login-header.component.html',
+    styleUrls: ['./login-header.component.css'],
+    standalone: false
 })
 export class LoginHeaderComponent implements OnInit {
 

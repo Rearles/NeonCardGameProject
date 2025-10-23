@@ -7,9 +7,10 @@ import { ResultService } from '../result/result-service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-game',
-  templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css'],
+    selector: 'app-game',
+    templateUrl: './game.component.html',
+    styleUrls: ['./game.component.css'],
+    standalone: false
 })
 
 export class GameComponent implements OnInit{

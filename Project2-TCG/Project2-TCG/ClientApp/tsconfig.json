@@ -4,18 +4,19 @@
     "baseUrl": "./",
     "module": "es2020",
     "outDir": "./dist/out-tsc",
-    "strict":  false,
+    "strict": false,
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "experimentalDecorators": true,
-    "target": "ES2015",
+    "target": "ES2022",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "useDefineForClassFields": false
   }
 }
