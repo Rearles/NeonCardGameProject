@@ -1,5 +1,5 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { OpenComponent } from './open.component';
@@ -26,7 +26,7 @@ describe('OpenComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should', async(() => {
+  it('should', waitForAsync(() => {
     spyOn(component, 'onClick');
     let button = fixture.debugElement.query(By.css('#openButton'));
     button.triggerEventHandler('click', null);

@@ -6,7 +6,8 @@ import { Card } from '../card/card.component';
 @Component({
   selector: 'app-open',
   templateUrl: './open.component.html',
-  styleUrls: ['./open.component.css']
+  styleUrls: ['./open.component.css'],
+  standalone: false
 })
 export class OpenComponent implements OnInit {
   Cards: Card[];

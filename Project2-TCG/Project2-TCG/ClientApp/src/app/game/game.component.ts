@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css'],
+  standalone: false
 })
 
 export class GameComponent implements OnInit{

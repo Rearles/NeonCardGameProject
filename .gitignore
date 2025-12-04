@@ -6,3 +6,16 @@
 /Project2-TCG/.vs/slnx.sqlite
 /Project2-TCG/.vs/ProjectSettings.json
 /Project2-TCG/Project2-TCG/logs
+
+# .NET build artifacts
+/Project2-TCG/*/bin/
+/Project2-TCG/*/obj/
+
+# Angular artifacts
+/Project2-TCG/Project2-TCG/ClientApp/node_modules/
+/Project2-TCG/Project2-TCG/ClientApp/dist/
+/Project2-TCG/Project2-TCG/ClientApp/.angular/
+/Project2-TCG/Project2-TCG/ClientApp/coverage/
+
+# NPM
+/Project2-TCG/package-lock.json

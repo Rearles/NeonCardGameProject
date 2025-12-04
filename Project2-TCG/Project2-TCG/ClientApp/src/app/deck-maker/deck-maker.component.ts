@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   selector: 'app-collection',
   templateUrl: './deck-maker.component.html',
   styleUrls: ['./deck-maker.component.css'],
+  standalone: false
 })
 
 export class DeckComponent implements OnInit {
