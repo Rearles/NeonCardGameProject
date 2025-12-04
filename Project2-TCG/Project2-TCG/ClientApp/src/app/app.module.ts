@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -40,8 +40,7 @@ import { RulesComponent } from './rules/rules.component';
     RulesComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
+    BrowserModule,
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -54,10 +53,12 @@ import { RulesComponent } from './rules/rules.component';
       { path: 'deck', component: DeckComponent },
       { path: 'result', component: ResultComponent },
       { path: 'rules', component: RulesComponent },
-], { relativeLinkResolution: 'legacy' })
+])
   ],
-  providers: [Card, LoginComponent, LoginHeaderComponent, RegisterComponent, DeckService, ResultService],
-
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    Card, LoginComponent, LoginHeaderComponent, RegisterComponent, DeckService, ResultService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

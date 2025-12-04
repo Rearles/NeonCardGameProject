@@ -4,7 +4,8 @@ import { ResultService } from './result-service'
 @Component({
   selector: 'app-result',
   templateUrl: './result-component.html',
-  styleUrls: ['./result-component.css']
+  styleUrls: ['./result-component.css'],
+  standalone: false
 })
 export class ResultComponent {
   Result: number;

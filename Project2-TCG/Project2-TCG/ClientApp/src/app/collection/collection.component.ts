@@ -7,6 +7,7 @@ import { Card } from '../card/card.component';
   selector: 'app-collection',
   templateUrl: './collection.component.html',
   styleUrls: ['./collection.component.css'],
+  standalone: false
 })
 export class CollectionComponent implements OnInit {
   Cards: Card[];

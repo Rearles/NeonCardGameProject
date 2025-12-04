@@ -5,7 +5,8 @@ import { User } from '../login/user';
 @Component({
   selector: 'app-login-header',
   templateUrl: './login-header.component.html',
-  styleUrls: ['./login-header.component.css']
+  styleUrls: ['./login-header.component.css'],
+  standalone: false
 })
 export class LoginHeaderComponent implements OnInit {
 
