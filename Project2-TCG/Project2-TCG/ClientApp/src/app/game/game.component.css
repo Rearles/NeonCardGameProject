@@ -1,6 +1,8 @@
 .game-board {
   background-image: url('../../assets/images/vwb4.jpg');
-  height: 100vh;
+  height: calc(100vh - 110px);
+  position: relative;
+  overflow: hidden;
   font-family: 'Josefin Sans', sans-serif;
   box-shadow: 0 0 8px 8px black inset;
   display:flex;
@@ -12,54 +14,72 @@
     position:absolute;
     background-color:black;
     color:white;
-    top:10%;
+    top:3%;
     left:2%;
     height:40px;
     width:140px;
+    z-index: 30;
 }
 .end-turn {
   position: absolute;
-  left: 15%;
-  top: 70%;
+  left: 3%;
+  top: 60%;
+  z-index: 30;
 }
 
 .enemy-face {
   background-color: red;
+  color: white;
   position: absolute;
-  width: 200px;
-  height: 200px;
-  left: 35%;
-  top: 10%
+  width: 160px;
+  height: 160px;
+  left: 76%;
+  top: 34%;
+  z-index: 30;
 }
 
 .turn-counter {
   position: absolute;
-  left: 10%;
+  top: 2%;
+  left: 78%;
+  color: white;
+  z-index: 20;
 }
 .player-hand {
   position: absolute;
   display: flex;
-  bottom: -8%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(0.5);
+  transform-origin: bottom center;
   justify-content: center;
 }
 
 .description {
   position: absolute;
-  top: 40%;
+  top: 42%;
   left: 3%;
-  font-size:60px;
+  font-size:44px;
   color:white;
   font-weight:bold;
+  max-width: 28%;
+  z-index: 20;
 }
 
 .playerCard {
   position: absolute;
-  bottom: 23%
+  bottom: 26%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.6);
+  transform-origin: bottom center;
 }
 
 .enemyCardPlay {
   position: absolute;
-  top: 13%;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.6);
+  transform-origin: top center;
 }
 
 .playerDeck {
@@ -91,13 +111,17 @@
 
 .playerStatus {
   position: absolute;
-  bottom: 15%;
-  left: 5%;
+  bottom: 18%;
+  left: 3%;
+  color: white;
+  z-index: 20;
 }
 
 .enemyStatus {
   position: absolute;
-  top: 25%;
-  left: 36%;
+  top: 1%;
+  left: 45%;
+  color: white;
+  z-index: 20;
 }
 
