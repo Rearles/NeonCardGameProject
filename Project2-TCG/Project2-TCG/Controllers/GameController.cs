@@ -101,10 +101,14 @@ namespace Project2_TCG.Controllers
             return card;
         }
 
-        [HttpGet("{currency}")]
-        public void UpdateCurrency(User user, int currency, bool plusminus)
+        /// <summary>
+        /// Award currency to a user (by username) at the end of a match. Returns the updated user.
+        /// </summary>
+        // POST: api/game/reward/{username}/{amount}
+        [HttpPost("reward/{username}/{amount}")]
+        public User GrantReward(string username, int amount)
         {
-            _cardRepo.UpdateUserCurrency(user, currency, plusminus);
+            return _cardRepo.AddCurrency(username, amount);
         }
         public Card getrandomcard(int id)
         {

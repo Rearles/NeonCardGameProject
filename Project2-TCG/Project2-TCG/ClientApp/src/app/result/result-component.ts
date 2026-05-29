@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { ResultService } from './result-service'
 
 @Component({
@@ -12,7 +13,7 @@ export class ResultComponent {
   Message: string;
   currency: number;
 
-  constructor(private _dataService: ResultService) {
+  constructor(private _dataService: ResultService, private http: HttpClient) {
     this.Result = this._dataService.getResult();
     this.Difficulty = this._dataService.getDifficulty();
     if (this.Result == 0) {
@@ -49,6 +50,20 @@ export class ResultComponent {
         this.currency = 8;
       }
     }
-    
+
+    this.grantReward();
+  }
+
+  // Award the earned currency to the logged-in user and refresh the nav balance.
+  grantReward() {
+    const username = localStorage.getItem("user");
+    if (username && username !== "error" && this.currency != null) {
+      this.http.post<any>("/api/game/reward/" + username + "/" + this.currency, {})
+        .subscribe(user => {
+          if (user && user.currency != null) {
+            localStorage.setItem("currency", String(user.currency));
+          }
+        }, error => console.error(error));
+    }
   }
 }
