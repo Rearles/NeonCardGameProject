@@ -6,3 +6,7 @@
 /Project2-TCG/.vs/slnx.sqlite
 /Project2-TCG/.vs/ProjectSettings.json
 /Project2-TCG/Project2-TCG/logs
+
+# SQLite runtime sidecar files (regenerated on each run)
+*.db-shm
+*.db-wal

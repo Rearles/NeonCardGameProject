@@ -66,7 +66,7 @@ namespace Project2_TCG.Models
             List<Entities.Card> query = _context.Cards.Where(x => x.Rarity == id).ToList();//grab all cards with the given rarity
             var cardCount = query.Count();
             Random random = new Random();
-            int selection = random.Next(0, cardCount-1); //choose a random id from those cards selected
+            int selection = random.Next(0, cardCount); //choose a random index from those cards selected (upper bound exclusive)
             Entities.Card card = query[selection]; //find the card at the selected id
             var color = _context.Colors.Single(c => c.Id == card.Color);
             var rarity = _context.Rarities.Single(r => r.Id == card.Rarity);
@@ -135,15 +135,24 @@ namespace Project2_TCG.Models
             {
                 if (plusminus == true)
                 {
-                    founduser.Currency = founduser.Currency + currency;
-                    _context.Update(founduser);
+                    founduser.Currency = (founduser.Currency ?? 0) + currency;
                 }
                 else if (plusminus == false)
                 {
-                    founduser.Currency = founduser.Currency - currency;
+                    founduser.Currency = (founduser.Currency ?? 0) - currency;
                 }
+                _context.Update(founduser);
+                _context.SaveChanges();
             }
-            
+        }
+
+        public User AddCurrency(string username, int amount)
+        {
+            var founduser = _context.Users.Single(u => u.Username == username);
+            founduser.Currency = (founduser.Currency ?? 0) + amount;
+            _context.Update(founduser);
+            _context.SaveChanges();
+            return new User(founduser.Id, founduser.Username, founduser.Password, founduser.Currency);
         }
 
         public User SearchUserById(int id)
@@ -158,7 +167,7 @@ namespace Project2_TCG.Models
             try
             {
                 var user = _context.Users.Single(u => u.Username == username && u.Password == password);
-                return new User(user.Username, user.Password);
+                return new User(user.Id, user.Username, user.Password, user.Currency);
             }
             catch (System.InvalidOperationException)
             {

@@ -64,6 +64,10 @@ namespace Project2_TCG.Models
         /// </summary>
         public void UpdateUserCurrency(User user, int currency, bool plusminus);
         /// <summary>
+        /// add (or subtract, if negative) currency for a user by username; persists and returns the updated user
+        /// </summary>
+        public User AddCurrency(string username, int amount);
+        /// <summary>
         /// filter cards by a certain rarity and return a list of matching cards
         /// </summary>
         /// <param name="rarity"></param>

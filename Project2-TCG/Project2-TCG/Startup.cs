@@ -31,8 +31,10 @@ namespace Project2_TCG
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://www.tcggame.azurewebsites.net",
-                                                          "http://www.tcggame.azurewebsites.net");
+                                      builder.WithOrigins("https://localhost:5001",
+                                                          "http://localhost:5000")
+                                             .AllowAnyHeader()
+                                             .AllowAnyMethod();
                                   });
             });
 
@@ -41,7 +43,7 @@ namespace Project2_TCG
             // In production, the Angular files will be served from this directory
 
             services.AddDbContext<cardgameContext>(
-                options => options.UseSqlServer("name=ConnectionStrings:petadmin").LogTo(message => Debug.WriteLine(message))
+                options => options.UseSqlite(Configuration.GetConnectionString("petadmin")).LogTo(message => Debug.WriteLine(message))
             );
 
             services.AddScoped<ICardRepo, CardRepo>();
